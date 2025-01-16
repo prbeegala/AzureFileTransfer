@@ -4,13 +4,11 @@ This repository is to explore the Azure File transfer as a managed file transfer
 Moving files from one storage account to another storage account within the same tenant, and across subscriptions.
 
 # Requirements:
-1) Ability to move files from one Storage Account to Another
-2) Files should only be read by this process, only after it is completely committed
+#1. Ability to move files from one Storage Account to Another
+2) Files should only be started to copy, only after it is completely committed
 3) Files of larger sizes than 1GB should be supported
-4) Should be a extensible soution
-5) Files of larger sizes
-6) Easily implemetable solution across the portfolio teams
-7) File should not be read prematurely, only after it is completely written.
+7) Lock to be applied while writing these files to the destination
+8) Ability to extend this solution easily to be implemented by the project teams
 
 # Solution
 1) Use Azure Event Grid, on the back of the Microsoft.Storage.BlobCreated event being created. This event is only triggered when the block blob is completely committed
